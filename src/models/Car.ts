@@ -4,7 +4,9 @@ export type Car = {
   model: string,
   year: number,
   price: number,
-  description?: number,
+  description?: string,
   imgUrl: string,
   color: string
+  // REVIEW how to construct types
+  // new(make: string,): Car
 }

@@ -1,7 +1,13 @@
+import { Car } from "../models/Car"
 import { CarForm } from "./CarForm"
 import { Modal } from "./Modal"
 
-export const Navbar = () => {
+interface Props {
+  cars: Car[],
+  setCars: React.Dispatch<React.SetStateAction<Car[]>>
+}
+
+export const Navbar: React.FC<Props> = ({ cars, setCars }) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
@@ -32,7 +38,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav >
-      <Modal header="Add Car" id="car-form" body={<CarForm />} />
+      <Modal header="Add Car" id="car-form" body={<CarForm cars={cars} setCars={setCars} />} />
     </div>
   )
 }
